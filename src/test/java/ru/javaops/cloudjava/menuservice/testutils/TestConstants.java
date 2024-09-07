@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class TestConstants {
 
-    public static final String BASE_URL = "/v1/menu-item";
+    public static final String BASE_URL = "/v1/menu-items";
 
     public static final String ITALIAN_SALAD_NAME = "Italian Salad";
     public static final String ITALIAN_SALAD_DESCRIPTION = "Italian Salad description";
