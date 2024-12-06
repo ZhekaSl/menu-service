@@ -73,6 +73,7 @@ spring:
 configserver:
   import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:9095}
 
+
 springdoc:
   api-docs:
     path: /api-docs
