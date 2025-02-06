@@ -32,6 +32,7 @@ ext {
 	mapstructLombokBindingVersion = '0.2.0'
 	springdocVersion = '2.5.0'
 	springCloudVersion = '2023.0.1'
+	lokiAppenderVersion = '1.5.1'
 }
 
 dependencies {
@@ -50,6 +51,8 @@ dependencies {
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	runtimeOnly "com.github.loki4j:loki-logback-appender:${lokiAppenderVersion}"
 	annotationProcessor "org.hibernate:hibernate-jpamodelgen:${jpaModelGenVersion}"
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
