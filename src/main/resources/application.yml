@@ -62,9 +62,9 @@ external:
 
 management:
   endpoints:
-    web:
-      exposure:
-        include: "*"
+    access:
+      default: unrestricted
+
   tracing:
     enabled: true
     sampling:

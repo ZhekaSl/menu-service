@@ -67,7 +67,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleHandlerMethodValidationException(HandlerMethodValidationException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         var pd = ex.getBody();
         Map<String, String> errors = new HashMap<>();
-        ex.getAllValidationResults().forEach(result -> {
+        ex.getParameterValidationResults().forEach(result -> {
             result.getResolvableErrors().forEach(e -> {
                 errors.put(result.getMethodParameter().getParameterName(), e.getDefaultMessage());
             });
