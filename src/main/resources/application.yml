@@ -28,7 +28,7 @@ spring:
   datasource:
     username: user
     password: password
-    url: jdbc:postgresql://localhost:15432/menu_service_db
+    url: jdbc:postgresql://localhost:5431/menu_service_db
     hikari:
       # таймаут на получение соединения из пула соединений
       connection-timeout: 2000 # в миллисекундах
@@ -54,6 +54,32 @@ spring:
         format_sql: true
         # говорим hibernate показывать sql запросы в логах (для отладки и тестирования)
         show_sql: true
+
+
+external:
+  zipkin-endpoint: http://localhost:9411/api/v2/spans
+  loki-url: http://localhost:3100/loki/api/v1/push
+
+management:
+  endpoints:
+    access:
+      default: unrestricted
+
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+    propagation:
+      type: b3
+  zipkin:
+    tracing:
+      endpoint: ${external.zipkin-endpoint}
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        all: true
 
 springdoc:
   api-docs:
