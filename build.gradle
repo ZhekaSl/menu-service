@@ -31,7 +31,6 @@ ext {
 	mapstructVersion = '1.5.5.Final'
 	mapstructLombokBindingVersion = '0.2.0'
 	springdocVersion = '2.5.0'
-	springCloudVersion = '2023.0.1'
 	lokiAppenderVersion = '1.5.1'
 }
 
@@ -44,9 +43,7 @@ dependencies {
 	implementation "io.hypersistence:hypersistence-utils-hibernate-63:${hypersistenceVersion}"
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
-	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.retry:spring-retry'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	compileOnly 'org.projectlombok:lombok'
@@ -63,12 +60,6 @@ dependencies {
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
-}
-
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
 }
 
 bootBuildImage {
